@@ -1,0 +1,124 @@
+:root {
+    --color1: #342a21;
+    --color2: #ffd166;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#grid-container {
+    border: 50px solid var(--color1);
+    width: 50%;
+    min-width: 600px;
+    min-height: 600px;
+    height: 80vh;
+    margin: 0 auto;
+    background-color: var(--color1);
+}
+
+.header {
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    color: var(--color1);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Unecessary ... the model used had this extra border so display properties applied here
+rather than #grid-container */
+
+#grid-inside-border {
+    border: 12px solid var(--color2);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+/* Grid 2 is composed of individual grid squares */
+
+.grid-square {
+    /* Width and height are 100%(width) divided by 8 (number of squares) */
+    height: 12.5%;
+    width: 12.5%;
+}
+
+.odd {
+    background-color: var(--color1);
+}
+.even {
+    background-color: var(--color2)
+}
+.container-letters {
+    margin: 0;
+    /* The #grid-inside-border is 12px. The container needed the smae space foe the container to center on the columns. */
+    padding: 0px 12px 0px 12px;
+    color: var(--color2);
+    font-size: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(8, 12.5%);
+    justify-items: center;
+    /* transform: rotate(180deg); */
+    
+}
+.container-letters-2 {
+    margin: -35px 0 12px 0;
+    /* The #grid-inside-border is 12px. The container needed the smae space foe the container to center on the columns. */
+    padding: 0px 12px 0px 12px;
+    color: var(--color2);
+    font-size: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(8, 12.5%);
+    justify-items: center;
+    transform: rotate(180deg);
+}
+.container-letters * {
+    padding-top: 9px; /* This sapcing may be accomplished with a grid property, but this works.*/
+}
+.container-numbers {
+    margin: -530px 0px 0 -30px;
+    height: 100%;
+    padding-top: 15px;
+    color: var(--color2);
+    font-size: 1.5rem;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr); 
+    /* position: relative; */
+    /* z-index: 1;  */
+    /* top: 26.5%;
+    left: 26.25%; */
+    
+}
+.container-numbers div {
+    margin: 0;
+    padding: 0;
+}
+.container-numbers-2 {
+    margin: -520px -30px 0 0;
+    height: 100%;
+    padding-top: 15px;
+    color: var(--color2);
+    font-size: 1.5rem;
+    display: grid;
+    grid-template-rows: repeat(8. 1fr);
+    transform: rotate(180deg);
+    
+    /* position: absolute;
+    z-index: 1;
+    top: 22.5%;
+    right: 26.25%; */
+}
+
+@media (max-width:900px) {
+    header {
+        font-size: .75rem;
+    }
+}
